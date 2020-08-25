@@ -2,16 +2,16 @@
 class PutioSync < Formula
   desc "Put.io folder sync app"
   homepage "https://github.com/putdotio/putio-sync"
-  version "2.0.21"
+  version "2.0.22"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/putdotio/putio-sync/releases/download/v2.0.21/putio-sync_2.0.21_macos_x86_64.tar.gz"
-    sha256 "56cd3e7512ffc914418fd6c2917f1e1d83aa3fe96d185293650b45b2d9cc4391"
+    url "https://github.com/putdotio/putio-sync/releases/download/v2.0.22/putio-sync_2.0.22_macos_x86_64.tar.gz"
+    sha256 "8abad7c9682eaa739d94d43f1bcb02f4795a3f2b749f4af6bc12878cd37a8dd2"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/putdotio/putio-sync/releases/download/v2.0.21/putio-sync_2.0.21_linux_x86_64.tar.gz"
-      sha256 "acafc03f311394ded4beaf0906df9bcfa4ab49a68ff2452a87fce43c2b0d296b"
+      url "https://github.com/putdotio/putio-sync/releases/download/v2.0.22/putio-sync_2.0.22_linux_x86_64.tar.gz"
+      sha256 "17170bbd2e993a9952b9d9d61140f354d3822a7be46f77aa6cd3e81090eaa949"
     end
   end
 
