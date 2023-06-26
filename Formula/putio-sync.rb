@@ -5,25 +5,36 @@
 class PutioSync < Formula
   desc "Put.io folder sync app"
   homepage "https://github.com/putdotio/putio-sync"
-  version "2.0.46"
-  bottle :unneeded
+  version "2.1.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/putdotio/putio-sync/releases/download/v2.0.46/putio-sync_2.0.46_macos_x86_64.tar.gz"
-      sha256 "efb8976c6b3c2679b004fcc9fbad828ba47960439c45063370eca758b4163aef"
+    url "https://github.com/putdotio/putio-sync/releases/download/v2.1.0/putio-sync_2.1.0_macos_x86_64.tar.gz"
+    sha256 "5187fd72dd95455c4b504785f4f6ac54c3a5712676f5215b956b94203acdafc0"
+
+    def install
+      bin.install "putio-sync"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the PutioSync
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/putdotio/putio-sync/releases/download/v2.0.46/putio-sync_2.0.46_linux_x86_64.tar.gz"
-      sha256 "da53c0b01a9f104cf07182c9c7f35d1b5c1308f70462f5d6eb2854bff06fec2f"
-    end
-  end
+      url "https://github.com/putdotio/putio-sync/releases/download/v2.1.0/putio-sync_2.1.0_linux_x86_64.tar.gz"
+      sha256 "97f6497f0d9551ad411c42b60d2665bb7b8712f2a90dd66db8ebac59673dd715"
 
-  def install
-    bin.install "putio-sync"
+      def install
+        bin.install "putio-sync"
+      end
+    end
   end
 
   test do
